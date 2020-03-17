@@ -15,9 +15,9 @@ void draw()
   translate(coordX, coordY);
   rotate(angle);
   rect(0, 0, 100, 100);
-  
-  coordX += 1;
-  coordY += 1;
-  
+
+  coordY += 5;
+  coordX += 5;
+    
   angle += 0.1;
 }
