@@ -11,7 +11,13 @@ void draw()
   strokeWeight(5);
   strokeCap(ROUND);
   line(400, 325, 400, 240);
-  line(400, 325, 450, 250);
+  line(400, 325, 475, 280);
+  line(400, 325, 475, 300);
+  line(400, 325, 475, 400);
+  line(400, 325, 400, 400);
+  line(400, 325, 325, 400);
+  line(400, 325, 325, 325);
+  line(400, 325, 325, 250);
   // eyes
   fill(255);
   strokeWeight(0);
