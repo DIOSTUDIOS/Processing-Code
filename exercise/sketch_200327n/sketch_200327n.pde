@@ -1,9 +1,9 @@
-float radius = 212;
+float radius = sqrt(sq(480)+sq(270));
 float angle = 0;
 
 void setup()
 {
-  size(300, 300);
+  size(960, 540);
   background(0);
   smooth();
   stroke(255);
