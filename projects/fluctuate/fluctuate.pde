@@ -7,9 +7,10 @@ void setup()
   smooth();
   poop = new ArrayList();
   
-  for(int i=0; i<600; i++)
+  for(int i=0; i<360; i++)
   {
-    PVector PD = new PVector(random(-480, 480), random(-480, 480));
+    //PVector PD = new PVector(random(-480, 480), random(-480, 480));
+    PVector PD = new PVector(random(width), random(height));
     Dots D = new Dots(PD);
     poop.add(D);
   }
@@ -19,7 +20,7 @@ void setup()
 void draw()
 {
   background(0);
-  translate(width/2, height/2);
+  //translate(width/2, height/2);
 
   for (int i=0;i<poop.size();i++)
   {

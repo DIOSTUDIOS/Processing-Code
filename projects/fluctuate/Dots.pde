@@ -19,7 +19,7 @@ class Dots
     float xt = random(-0.01, 0.01);
     float yt = random(-0.01, 0.01);
     
-    velocity = new PVector(xt, yt );
+    velocity = new PVector(xt, yt);
   }
 
   void display()
