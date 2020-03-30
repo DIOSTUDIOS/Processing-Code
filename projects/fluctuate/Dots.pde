@@ -3,7 +3,7 @@ class Dots
   PVector location;
   PVector velocity;
   color c;
-  int radius = 200;
+  int radius = 20080;
   
   Dots(PVector _PV)
   {

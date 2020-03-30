@@ -1,5 +1,5 @@
 ArrayList poop;
-int distance = 50;
+int distance = 60;
 
 void setup()
 {
@@ -7,9 +7,9 @@ void setup()
   smooth();
   poop = new ArrayList();
   
-  for(int i=0; i<120; i++)
+  for(int i=0; i<600; i++)
   {
-    PVector PD = new PVector(random(-150, 150), random(-150, 150));
+    PVector PD = new PVector(random(-480, 480), random(-480, 480));
     Dots D = new Dots(PD);
     poop.add(D);
   }
