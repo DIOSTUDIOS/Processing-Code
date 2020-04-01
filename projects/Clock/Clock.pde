@@ -1,3 +1,13 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+AudioPlayer player;
+Minim minim;
+
 float angle = radians(0);
 float speed = 0.009;
 int direction = 1;
@@ -22,6 +32,10 @@ void setup()
   strokeWeight(2);
   
   referenceTime = millis();
+  
+  minim = new Minim(this);
+  player = minim.loadFile("sound.mp3", 1024);
+  
 }
 
 void draw()
@@ -77,6 +91,8 @@ void display()
   if(angle >= radians(25) || angle <= radians(-25))
   {
     direction = -direction;
+    player.rewind();
+    player.play();
   }
 }
 
