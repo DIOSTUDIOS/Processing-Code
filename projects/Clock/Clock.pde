@@ -19,14 +19,13 @@ String second;
 int referenceTime = 0;
 int currentSecond = 0;
 
+PFont font;
+
 void setup()
 {
   size(960, 540);
 
   smooth();
-  
-  textAlign(CENTER);
-  textSize(64);
   
   stroke(255);
   strokeWeight(2);
@@ -36,39 +35,44 @@ void setup()
   minim = new Minim(this);
   player = minim.loadFile("sound.mp3", 1024);
   
+  font = createFont("Raleway-Bold.ttf", 32);
+  textFont(font);
+  textAlign(CENTER);
+  textSize(64);
 }
 
 void draw()
 {
+  background(0);
   currentSecond = millis();
   
   if((currentSecond - referenceTime) <= 5000)
   {
-    background(0);
+    //background(0);
     text("Prepare...", width/2, height/2);
   }
   
   if((currentSecond - referenceTime) > 5000 && (currentSecond - referenceTime) <= 10000)
   {
-    background(0);
+    //background(0);
     text("Designed by DIOSTUDIO", width/2, height/2);
   }
   
   if((currentSecond - referenceTime) > 10000 && (currentSecond - referenceTime) <= 30000)
   {
-    background(0);
+    //background(0);
     display();
   }
   
   if((currentSecond - referenceTime) > 30000 && (currentSecond - referenceTime) <= 35000)
   {
-    background(0);
+    //background(0);
     text("www.diostudio.wang", width/2, height/2);
   }
   
   if((currentSecond - referenceTime) > 35000)
   {
-    background(0);
+    //background(0);
     text("END", width/2, height/2);
   }
 }
