@@ -7,6 +7,11 @@ int meteorsNumber = (int)random(240, 480);
 //设置边界距离
 float route = 551;
 
+int referenceTime = 0;
+int currentSecond = 0;
+
+PFont font;
+
 void setup()
 {
   size(960, 540);
@@ -18,11 +23,53 @@ void setup()
     Meteor meteor = new Meteor(PD);
     meteors.add(meteor);
   }
+  
+  referenceTime = millis();
+  
+  font = createFont("Raleway-Bold.ttf", 32);
+  textFont(font);
+  textAlign(CENTER);
+  textSize(64);
+  
+  background(0);
 }
 
 void draw()
 {
   background(0);
+  currentSecond = millis();
+  
+  if((currentSecond - referenceTime) <= 10000)
+  {
+    text("Prepare...", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 10000 && (currentSecond - referenceTime) <= 15000)
+  {
+    text("Designed by DIOSTUDIO", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 15000 && (currentSecond - referenceTime) <= 35000)
+  {
+    show();
+  }
+  
+  if((currentSecond - referenceTime) > 35000 && (currentSecond - referenceTime) <= 40000)
+  {
+    fill(255);
+    text("Thanks for Watching", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 40000)
+  {
+    fill(255);
+    text("END", width/2, height/2);
+  }
+}
+
+void show()
+{
+  
   translate(width/2, height/2);
   //陆续显示飞星，并且判断两两之间的距离，如果小于等于distance，则绘制一个三角形并填充颜色
   for(int i=0;i<meteors.size();i++)
