@@ -1,15 +1,8 @@
-float speed = 0.006;
-int number = (int)random(1, 5) * 2;
+float speed = 0.005;
+int number = (int)random(0, 4);
+int initX = 305;
 
-Pendulum pendulum1 = new Pendulum(305, 100, radians(25), -speed);
-//Pendulum pendulum2 = new Pendulum(355, 100, radians(25), speed, -1);
-//Pendulum pendulum3 = new Pendulum(405, 100, radians(25), speed, -1);
-//Pendulum pendulum4 = new Pendulum(455, 100, radians(25), speed, -1);
-
-//Pendulum pendulum5 = new Pendulum(505, 100, radians(-25), speed, 1);
-//Pendulum pendulum6 = new Pendulum(555, 100, radians(-25), speed, 1);
-//Pendulum pendulum7 = new Pendulum(605, 100, radians(-25), speed, 1);
-Pendulum pendulum8 = new Pendulum(655, 100, radians(-25), speed);
+Pendulum[] pendulum = new Pendulum[8];
 
 void setup()
 {
@@ -20,33 +13,32 @@ void setup()
   
   stroke(255);
   strokeWeight(2);
+  
+  for(int i=0; i<pendulum.length; i++)
+  {
+    if(i <= number)
+    {
+      pendulum[i] = new Pendulum(initX, 100, radians(25));
+    }
+    else
+    {
+      pendulum[i] = new Pendulum(initX, 100, radians(0));
+    }
+    
+    initX += 50;
+  }
 }
 
 void draw()
 {
   background(0);
+
+  pendulum[0].sketch();
+  pendulum[7].sketch();
   
-  pendulum1.sketch();
-  pendulum1.swingLeft();
+  pendulum[0].swingLFall(-speed);
+  pendulum[7].swingRRise(-speed);
   
-  //pendulum2.sketch();
-  //pendulum2.swingLeft();
-  
-  //pendulum3.sketch();
-  //pendulum3.swingLeft();
-  
-  //pendulum4.sketch();
-  //pendulum4.swingLeft();
-  
-  //pendulum5.sketch();
-  //pendulum5.swingRight();
-  
-  //pendulum6.sketch();
-  //pendulum6.swingRight();
-  
-  //pendulum7.sketch();
-  //pendulum7.swingRight();
-  
-  pendulum8.sketch();
-  pendulum8.swingRight();
+  //pendulum[7].swingRFall(speed);
+  //pendulum[0].swingLRise(speed);
 }

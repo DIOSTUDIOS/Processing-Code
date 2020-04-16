@@ -3,14 +3,12 @@ class Pendulum
   int originX;
   int originY;
   float angle;
-  float speed;
   
-  Pendulum(int origin_x, int origin_y, float tempAngle, float tempSpeed)
+  Pendulum(int origin_x, int origin_y, float tempAngle)
   {
     originX = origin_x;
     originY = origin_y;
     angle = tempAngle;
-    speed = tempSpeed;
   }
   
   void sketch()
@@ -26,23 +24,55 @@ class Pendulum
     popMatrix();
   }
   
-  void swingLeft()
+  void swingLFall(float speed)
   {
-    angle += speed;
-    
-    if(angle >= radians(25) || angle <= radians(0))
+    if(angle > radians(0))
     {
-      speed = -speed;
+      angle += speed;
+      
+      if(angle <= radians(0))
+      {
+        angle = radians(0);
+      }
     }
   }
   
-  void swingRight()
+  void swingRRise(float speed)
   {
-    angle += speed;
-    
-    if(angle >= radians(0) || angle <= radians(-25))
+    if(angle > radians(-25))
     {
-      speed = -speed;
+      angle += speed;
+      
+      if(angle <= radians(-25))
+      {
+        angle = radians(-25);
+      }
+    }
+  }
+  
+  void swingRFall(float speed)
+  {
+    if(angle < radians(0))
+    {
+      angle += speed;
+      
+      if(angle >= radians(0))
+      {
+        angle = radians(0);
+      }
+    }
+  }
+  
+  void swingLRise(float speed)
+  {
+    if(angle < radians(25))
+    {
+      angle += speed;
+      
+      if(angle >= radians(25))
+      {
+        angle = radians(25);
+      }
     }
   }
 }
