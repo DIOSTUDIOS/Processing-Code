@@ -11,6 +11,11 @@ int direction = 1;
 
 float scale = 300;
 
+int referenceTime = 0;
+int currentSecond = 0;
+
+PFont font;
+
 void setup()
 {
   size(960, 540);
@@ -19,17 +24,48 @@ void setup()
   background(0);
   
   strokeWeight(1);
+  
+  font = createFont("Raleway-Bold.ttf", 32);
+  textFont(font);
+  textAlign(CENTER);
+  textSize(64);
+  
+  referenceTime = millis();
 }
 
 void draw()
 {
-  display();
+  background(0);
+  currentSecond = millis();
+  
+  if((currentSecond - referenceTime) <= 10000)
+  {
+    text("Prepare...", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 10000 && (currentSecond - referenceTime) <= 15000)
+  {
+    text("Designed by DIOSTUDIO", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 15000 && (currentSecond - referenceTime) <= 35000)
+  {
+    display();
+  }
+  
+  if((currentSecond - referenceTime) > 35000 && (currentSecond - referenceTime) <= 40000)
+  {
+    text("Thanks for Watching", width/2, height/2);
+  }
+  
+  if((currentSecond - referenceTime) > 40000)
+  {
+    text("END", width/2, height/2);
+  }
 }
 
 void display()
 {
-  background(0);
-  
   translate(width/2, height/2);
   
   getCount(movepoint);

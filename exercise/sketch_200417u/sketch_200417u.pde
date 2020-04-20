@@ -1,4 +1,4 @@
-int densityNum = 10; // 雪花的密度
+int densityNum = 100; // 雪花的密度
 float[] x= new  float[densityNum];
 float[] y= new  float[densityNum];
 // 雪花随机速度数组
