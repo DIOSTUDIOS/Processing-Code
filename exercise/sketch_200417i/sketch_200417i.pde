@@ -1,8 +1,3 @@
-
-/* class definitions */
-
-/* global variables */
-
 /* t: time */
 float t = 0;
 /* dt: delta t */
@@ -10,33 +5,33 @@ float dt = 0.01;
 /* ns: noise scale */
 float ns = 0.02;
 /* rotx, roty: rotation angles */
-float rotx;
-float roty;
+float rotx = 0;
+float roty = 0;
 /* s: scale factor */
-float s;
+float s = 1;
 
 /* main routines */
 
 void setup()
 {
-  size(600,600,P3D);
+  size(960 ,540, P3D);
+  smooth();
   
-  rotx = 0;
-  roty = 0;
-  s = 1;
+  noFill();
 }
 
 void draw()
 {
-  background(50);
-  
+  background(0);
   translate(width/2,height/2);
-  scale(s);
-  rotateX(roty);
-  rotateY(rotx);
+  
+  //scale(s);
+  //rotateX(roty);
+  //rotateY(rotx);
   
   int N = 50;
   float R = 80;
+  
   for(int i = 0; i < N; i++)
   {
     float r = -R*log(float(N-i)/N);
@@ -44,7 +39,7 @@ void draw()
     strokeWeight(0.005*r);
     stroke(255);
       
-    noFill();
+    //noFill();
       
     float v = 1*(float(N-i)/N);
     
@@ -59,15 +54,13 @@ void draw()
   t += dt;
 }
 
-void mouseDragged()
-{
-  rotx += (mouseX - pmouseX) * 0.01 / pow(s, 2);
-  roty -= (mouseY - pmouseY) * 0.01 / pow(s, 2);
-}
+//void mouseDragged()
+//{
+//  rotx += (mouseX - pmouseX) * 0.01 / pow(s, 2);
+//  roty -= (mouseY - pmouseY) * 0.01 / pow(s, 2);
+//}
 
-void mouseWheel(MouseEvent e)
-{
-  s -= e.getAmount() / 10;
-}
-
-/* auxiliary routines */
+//void mouseWheel(MouseEvent e)
+//{
+//  s -= e.getAmount() / 10;
+//}

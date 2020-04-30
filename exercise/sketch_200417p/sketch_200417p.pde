@@ -1,6 +1,7 @@
 float t = 0.0;
 
-void setup() {
+void setup()
+{
   size(960, 540, P3D);
   background(0);
   smooth();
